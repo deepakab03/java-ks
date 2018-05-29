@@ -1,13 +1,14 @@
 import java.io.*;
-import a.ClassInPackageA;
+import com.abc.ClassInPackageA;
 
 public class IOMain {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 		IOMain ioMain = new IOMain();
 		ioMain.traditionalReadUsingReader();
 		ioMain.jdk7ReadUsingReader();
 		ioMain.readDataFromClassPath();
+		ioMain.readObjects();
     }
 
     void traditionalReadUsingReader() throws IOException {
@@ -50,7 +51,7 @@ public class IOMain {
 		//ClassInPackageA.class.getResourceAsStream("2.txt")
 		//IOMain.class.getResourceAsStream("a/2.txt")
 		//IOMain.class.getResourceAsStream("/a/2.txt")
-		try (InputStream ip = IOMain.class.getResourceAsStream("a/2.txt");
+		try (InputStream ip = IOMain.class.getResourceAsStream("a2.txt");
 			//conversion from Streams to Reader
 			//ITS OKAY TO NEST INPUTSTREAMS LIKE THIS, THE APPROPRIATE CLOSE METHODS WILL BE CALLED
 			BufferedReader bf = new BufferedReader(new InputStreamReaderCustom(ip));) {
@@ -59,6 +60,14 @@ public class IOMain {
 		}
 
 	}
+
+    void readObjects() throws IOException, ClassNotFoundException {
+        FileInputStream fi = new FileInputStream("per.dat");
+		ObjectInputStream oi = new ObjectInputStream(fi);
+		Person p2 = (Person) oi.readObject();
+		System.out.println("name:" + p2.getName() + " age:" + p2.getAge());
+		oi.close();
+    }
 }
 
 class InputStreamReaderCustom extends InputStreamReader {

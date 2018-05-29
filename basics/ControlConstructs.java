@@ -62,17 +62,7 @@
 				System.out.println("In default switch");
 		}
 
-		CoffeeSize big = CoffeeSize.OVERWHELMING;
-		switch (big) {
-			case BIG:
-				System.out.println("in BIG switch");
-				break;
-			case HUGE:
-				System.out.println("in HUGE switch");
-				break;
-			default:
-				System.out.println("In default enum switch");
-		}
+        //switch also works on enums - to be seen later
 
 		String name = "dDeepak";//image name comes from somewhere else
 		switch (someFunc()) {//function name or variable

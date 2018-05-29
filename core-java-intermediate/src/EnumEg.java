@@ -18,6 +18,19 @@ public class EnumEg {
 			for (TfLight tLig: tLights) {
 				System.out.println("Light: " + tLig + " ordinal:" + tLig.ordinal());
 			}
+            
+            //using enums in a switch statement
+            CoffeeSize big = CoffeeSize.OVERWHELMING;
+            switch (big) {
+                case BIG:
+                    System.out.println("in BIG switch");
+                    break;
+                case HUGE:
+                    System.out.println("in HUGE switch");
+                    break;
+                default:
+                    System.out.println("In default enum switch");
+            }
 
 	}
 }

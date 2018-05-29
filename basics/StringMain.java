@@ -1,7 +1,6 @@
-public class AssertSringMain {
+public class StringMain {
 
-    public static void main(String[] args) {
-		assert args.length > 0;
+    public static void main(String[] args) {	
 
 		String name = "Deepak";
 		String name1 = "Deepak";
@@ -16,7 +15,7 @@ public class AssertSringMain {
 		String fullName = name.concat("Abraham");
 		System.out.println("Name after concat: " + name + ", fullName:" + fullName);
 
-		//for string manipulation and creation don't use + use StringBuilder
+		//for string manipulation and creation don't use + use StringBuilder (how is it different from StringBuffer?)
 		StringBuilder sb = new StringBuilder();
 		sb.append("Deepak");
 		sb.append(" Abraham");

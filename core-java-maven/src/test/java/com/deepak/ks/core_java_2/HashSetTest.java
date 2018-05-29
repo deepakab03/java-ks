@@ -15,11 +15,11 @@ public class HashSetTest {
     @Test public void
     whenAdd_givenDuplicateNamesSupplied_shouldKeepOnlyUniqueNames() {
         Set<String> set = new HashSet<>();
-        
+
         boolean hasBeenAddedToCollection = set.add("sandeep");
         set.add("deepak");
         hasBeenAddedToCollection = set.add("sandeep");
-        
+
         assertThat(hasBeenAddedToCollection, is(false));
         assertThat(set, hasSize(2));
         assertThat(set, containsInAnyOrder("deepak", "sandeep"));
